@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "46591249721",
+    "firebase_url": "https://dibs-76d97.firebaseio.com",
+    "project_id": "dibs-76d97",
+    "storage_bucket": "dibs-76d97.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:46591249721:android:5be3c5df528908b8",
+        "android_client_info": {
+          "package_name": "com.rajmakda.dibs"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "46591249721-3nc1td1i2b6rhd4ei90ogiqlon89hm0o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.rajmakda.dibs",
+            "certificate_hash": "9f2d0c968b0d9fbbcf352754d3bb0fe5b9e8ed0e"
+          }
+        },
+        {
+          "client_id": "46591249721-cpjhrf7vcmu08s6ijkduamhgl2u7r7st.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDyvwzExQgqdPKZlG8XRCHNrtMc6OLfF-4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "46591249721-cpjhrf7vcmu08s6ijkduamhgl2u7r7st.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
