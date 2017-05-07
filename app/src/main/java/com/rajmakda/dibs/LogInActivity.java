@@ -42,15 +42,6 @@ public class LogInActivity extends AppCompatActivity {
         logInButton = (Button) findViewById(R.id.logInButton);
 
         mAuth = FirebaseAuth.getInstance();
-       /* mAuthListener = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                if(firebaseAuth.getCurrentUser() != null )   {
-                        Intent intent = new Intent(getApplicationContext(), HomePageActivity.class);
-                        startActivity(intent);
-                }
-            }
-        };*/
         mAuthListener = new FirebaseAuth.AuthStateListener() {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
