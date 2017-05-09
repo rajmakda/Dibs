@@ -91,7 +91,7 @@ public class LogInActivity extends AppCompatActivity {
                             if (task.isSuccessful()) {
                                 // Sign in success, update UI
                                 if (mAuth.getCurrentUser().isEmailVerified()) {
-                                    Intent intent = new Intent(getApplicationContext(), HomePageActivity.class);
+                                    Intent intent = new Intent(getApplicationContext(), MapsActivity.class);
                                     startActivity(intent);
                                 } else {
                                     Toast.makeText(LogInActivity.this, "Email not verified", Toast.LENGTH_SHORT).show();
