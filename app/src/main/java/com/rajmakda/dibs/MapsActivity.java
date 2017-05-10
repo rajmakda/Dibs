@@ -36,13 +36,14 @@ public class MapsActivity extends ActionBarActivity implements OnMapReadyCallbac
     private CharSequence mDrawerTitle;
     private String[] mPlanetTitles;
     private String mActivityTitle; //
+    String[] osArray = { "My Profile", "Link", "About Us", "Settings", "Logout" };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
         mTitle = mDrawerTitle = getTitle();
-        mPlanetTitles = getResources().getStringArray(R.array.nav_item_activity_titles);
+        //mPlanetTitles = getResources().getStringArray(R.array.nav_item_activity_titles);
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
@@ -153,14 +154,7 @@ public class MapsActivity extends ActionBarActivity implements OnMapReadyCallbac
 
         return super.onOptionsItemSelected(item);
     }
-
-    /* The click listner for ListView in the navigation drawer */
-    private class DrawerItemClickListener implements ListView.OnItemClickListener {
-        @Override
-        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-            selectItem(position);
-        }
-    }
+    
 
     private void selectItem(int position) {
         // update the main content by replacing fragments
@@ -173,8 +167,9 @@ public class MapsActivity extends ActionBarActivity implements OnMapReadyCallbac
 //        fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
 
         // update selected item and title, then close the drawer
+
         mDrawerList.setItemChecked(position, true);
-        setTitle(mPlanetTitles[position]);
+        setTitle(osArray[position]);
         mDrawerLayout.closeDrawer(mDrawerList);
     }
 
