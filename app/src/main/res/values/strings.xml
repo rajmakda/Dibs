@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">Dibs</string>
     <string name="title_activity_maps">Map</string>
+    <string name="activity_name">Create New Event</string>
 </resources>
