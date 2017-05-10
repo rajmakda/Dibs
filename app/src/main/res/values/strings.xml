@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">Dibs</string>
     <string name="title_activity_maps">Map</string>
+
     <string name="action_addEvent">Mark Event</string>
     <string name="drawer_open">Open navigation drawer</string>
     <string name="drawer_close">Close navigation drawer</string>
@@ -26,7 +27,6 @@
         <item>About Us</item>
         <item>Logout</item>
     </string-array>
-    />
 
 
     <string name="activity_title_about_us">About Us</string>
@@ -34,4 +34,7 @@
     <string name="action_clear_all">Clear All</string>
     <string name="action_logout">Logout</string>
     <string name="action_mark_all_read">Mark All as Read</string>
+
+    <string name="activity_name">Create New Event</string>
+
 </resources>
