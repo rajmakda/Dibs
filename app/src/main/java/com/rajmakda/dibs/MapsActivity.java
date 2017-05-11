@@ -3,6 +3,7 @@ package com.rajmakda.dibs;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.Intent;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
@@ -23,6 +24,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class MapsActivity extends ActionBarActivity implements OnMapReadyCallback {
 
@@ -154,9 +156,26 @@ public class MapsActivity extends ActionBarActivity implements OnMapReadyCallbac
 
         return super.onOptionsItemSelected(item);
     }
-    
+
 
     private void selectItem(int position) {
+//        if (position == 0) {
+//            Intent i = new Intent(MapsActivity.this, ToActivity.class);
+//            startActivity(i);
+//        } else if (position == 1) {
+//            Intent i = new Intent(MapsActivity.this, ToActivity.class);
+//            startActivity(i);
+//        } else if (position == 2) {
+//            Intent i = new Intent(MapsActivity.this, ToActivity.class);
+//            startActivity(i);
+//        } else if (position == 3) {
+//            Intent i = new Intent(MapsActivity.this, ToActivity.class);
+//            startActivity(i);
+        /*} else*/ if (position == 4) {
+            FirebaseAuth.getInstance().signOut();
+            Intent intent = new Intent(getApplicationContext(), LogInActivity.class);
+            startActivity(intent);
+        }
         // update the main content by replacing fragments
 //        Fragment fragment = new PlanetFragment();
 //        Bundle args = new Bundle();
@@ -168,9 +187,9 @@ public class MapsActivity extends ActionBarActivity implements OnMapReadyCallbac
 
         // update selected item and title, then close the drawer
 
-        mDrawerList.setItemChecked(position, true);
-        setTitle(osArray[position]);
-        mDrawerLayout.closeDrawer(mDrawerList);
+//        mDrawerList.setItemChecked(position, true);
+//        setTitle(osArray[position]);
+//        mDrawerLayout.closeDrawer(mDrawerList);
     }
 
     @Override
