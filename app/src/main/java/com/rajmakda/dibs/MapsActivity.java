@@ -3,7 +3,9 @@ package com.rajmakda.dibs;
 import android.app.Activity;
 import android.app.Fragment;
 import android.app.FragmentManager;
+import android.content.Intent;
 import android.content.res.Configuration;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarActivity;
@@ -23,6 +25,7 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class MapsActivity extends ActionBarActivity implements OnMapReadyCallback {
 
@@ -33,17 +36,16 @@ public class MapsActivity extends ActionBarActivity implements OnMapReadyCallbac
     private ArrayAdapter<String> mAdapter; //
     private ActionBarDrawerToggle mDrawerToggle;
     private CharSequence mTitle;
-    private CharSequence mDrawerTitle;
-    private String[] mPlanetTitles;
     private String mActivityTitle; //
-    String[] osArray = { "My Profile", "Link", "About Us", "Settings", "Logout" };
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_maps);
-        mTitle = mDrawerTitle = getTitle();
-        //mPlanetTitles = getResources().getStringArray(R.array.nav_item_activity_titles);
+        mTitle  = getTitle();
+        mAuth = FirebaseAuth.getInstance();
+
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
@@ -60,6 +62,9 @@ public class MapsActivity extends ActionBarActivity implements OnMapReadyCallbac
     }
 
 
+
+
+
     /**
      * Manipulates the map once available.
      * This callback is triggered when the map is ready to be used.
@@ -73,21 +78,20 @@ public class MapsActivity extends ActionBarActivity implements OnMapReadyCallbac
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
 
-        // Add a marker in Sydney and move the camera
+        // Add a marker in SJSU and zoom the camera
         LatLng SJSU = new LatLng(37.335565, -121.881212);
         mMap.addMarker(new MarkerOptions().position(SJSU).title("Marker in SJSU"));
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(SJSU, 16));
     }
 
     private void addDrawerItems() {
-        String[] osArray = { "My Profile", "Link", "About Us", "Settings", "Logout" };
+        String[] osArray = { "My Profile", "Extra Resources", "About Us", "Settings", "Logout" };
         mAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, osArray);
         mDrawerList.setAdapter(mAdapter);
 
         mDrawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-//                Toast.makeText(MapsActivity.this, "Time for an upgrade!", Toast.LENGTH_SHORT).show();
                 selectItem(position);
             }
         });
@@ -144,6 +148,8 @@ public class MapsActivity extends ActionBarActivity implements OnMapReadyCallbac
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_addpointer) {
+            Intent intent = new Intent(getApplicationContext(), NewEventFormActivity.class);
+            startActivity(intent);
             return true;
         }
 
@@ -157,20 +163,17 @@ public class MapsActivity extends ActionBarActivity implements OnMapReadyCallbac
     
 
     private void selectItem(int position) {
-        // update the main content by replacing fragments
-//        Fragment fragment = new PlanetFragment();
-//        Bundle args = new Bundle();
-//        args.putInt(PlanetFragment.ARG_PLANET_NUMBER, position);
-//        fragment.setArguments(args);
-//
-//        FragmentManager fragmentManager = getFragmentManager();
-//        fragmentManager.beginTransaction().replace(R.id.content_frame, fragment).commit();
 
-        // update selected item and title, then close the drawer
-
-        mDrawerList.setItemChecked(position, true);
-        setTitle(osArray[position]);
-        mDrawerLayout.closeDrawer(mDrawerList);
+        if(position==1) {
+            Uri uriUrl = Uri.parse("http://www.sjsu.edu/wellness/foodresources/");
+            Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
+            startActivity(launchBrowser);
+        }
+        if(position==4) {
+            mAuth.getInstance().signOut();
+            Intent intent = new Intent(getApplicationContext(), LogInActivity.class);
+            startActivity(intent);
+        }
     }
 
     @Override
@@ -178,4 +181,6 @@ public class MapsActivity extends ActionBarActivity implements OnMapReadyCallbac
         mTitle = title;
         getActionBar().setTitle(mTitle);
     }
+
+
 }

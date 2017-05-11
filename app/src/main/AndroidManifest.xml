@@ -26,7 +26,6 @@
         </activity>
         <activity
             android:name=".SignUpActivity" />
-        <activity android:name=".HomePageActivity" />
         <activity android:name=".EmailVerificationActivity" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -43,9 +42,7 @@
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" />
-        <activity android:name=".NewEventFormActivity"
-            android:exported="true"
-            android:label="@string/activity_name"></activity>
+        <activity android:name=".NewEventFormActivity"> </activity>
     </application>
 
 </manifest>
