@@ -2,8 +2,13 @@ package com.rajmakda.dibs;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.NavUtils;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -13,7 +18,7 @@ import android.widget.Toast;
 import java.util.Calendar;
 
 
-public class NewEventFormActivity extends FragmentActivity {
+public class NewEventFormActivity extends AppCompatActivity {
 
     EditText txtDate;
     EditText txtTime;
@@ -22,8 +27,9 @@ public class NewEventFormActivity extends FragmentActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTitle("Create New Event");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         setContentView(R.layout.activity_new_event_form);
-
         txtDate=(EditText)findViewById(R.id.dateEditText);
         txtTime=(EditText)findViewById(R.id.timeEditText);
 
@@ -74,6 +80,18 @@ public class NewEventFormActivity extends FragmentActivity {
                 }, mHour, mMinute, false);
         timePickerDialog.show();
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            // Respond to the action bar's Up/Home button
+            case android.R.id.home:
+                Intent intent = new Intent(getApplicationContext(), MapsActivity.class);
+                startActivity(intent);
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 
