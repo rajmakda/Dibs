@@ -26,7 +26,7 @@
         </activity>
         <activity
             android:name=".SignUpActivity" />
-        <activity android:name=".EmailVerificationActivity" />
+        <activity android:name=".EmailVerificationActivity"/>
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").

@@ -84,6 +84,7 @@ public class SignUpActivity extends AppCompatActivity {
                                 // Sign in success, update UI with the signed-in user's information
 
                                 Intent intent = new Intent(getApplicationContext(), EmailVerificationActivity.class);
+                                intent.putExtra("Email",emailEditText.getText().toString());
                                 startActivity(intent);
                             } else {
                                 // If sign in fails, display a message to the user.
