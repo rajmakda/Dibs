@@ -85,7 +85,7 @@ public class MapsActivity extends ActionBarActivity implements OnMapReadyCallbac
     }
 
     private void addDrawerItems() {
-        String[] osArray = { "My Profile", "Extra Resources", "About Us", "Settings", "Logout" };
+        String[] osArray = { "My Profile", "Extra Resources", "Contact Us", "Settings", "Logout" };
         mAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, osArray);
         mDrawerList.setAdapter(mAdapter);
 
@@ -164,10 +164,18 @@ public class MapsActivity extends ActionBarActivity implements OnMapReadyCallbac
 
     private void selectItem(int position) {
 
+        if(position==0) {
+            Intent intent = new Intent(getApplicationContext(), MyProfile.class);
+            startActivity(intent);
+        }
         if(position==1) {
             Uri uriUrl = Uri.parse("http://www.sjsu.edu/wellness/foodresources/");
             Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
             startActivity(launchBrowser);
+        }
+        if(position==2) {
+            Intent intent = new Intent(getApplicationContext(), AboutUsActivity.class);
+            startActivity(intent);
         }
         if(position==4) {
             mAuth.getInstance().signOut();

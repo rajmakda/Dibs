@@ -40,7 +40,7 @@
         <activity
             android:name=".MapsActivity"
             android:label="@string/title_activity_maps" />
-        <activity android:name=".NewEventFormActivity"></activity>
+        <activity android:name=".NewEventFormActivity" />
         <activity
             android:name=".SettingsActivity"
             android:label="@string/title_activity_settings"
@@ -49,6 +49,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.rajmakda.dibs.MapsActivity" />
         </activity>
+        <activity android:name=".AboutUsActivity" />
+        <activity android:name=".MyProfile"></activity>
     </application>
 
 </manifest>
