@@ -174,6 +174,10 @@ public class MapsActivity extends ActionBarActivity implements OnMapReadyCallbac
             Intent intent = new Intent(getApplicationContext(), LogInActivity.class);
             startActivity(intent);
         }
+        if(position==3) {
+            Intent intent = new Intent(getApplicationContext(), SettingsActivity.class);
+            startActivity(intent);
+        }
     }
 
     @Override
